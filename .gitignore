@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# environments
+.env
+.venv
+fraud-ml/
+
+# macOS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# model artifacts
+reports/models/
+
+# large files
+*.pkl
+*.joblib
+
+# data
+data/raw/*.csv
+
+# generated reports (keep repo clean)
+reports/
+!reports/metrics.json
+!reports/figures/
+!reports/figures/roc_comparison.png
+!reports/figures/shap_summary_xgb.png
+
