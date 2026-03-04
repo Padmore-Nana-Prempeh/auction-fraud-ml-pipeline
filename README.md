@@ -99,7 +99,7 @@ XGBoost achieved the best performance and was selected as the final model.
 
 The figure below compares all trained models.
 
-![ROC Comparison](reports/figures/roc_comparison.png)
+![ROC Comparison](assets/roc_comparison.png)
 
 XGBoost dominates the ROC space with near-perfect separation.
 
@@ -111,15 +111,15 @@ Precision-Recall curves are particularly important for fraud detection tasks wit
 
 ### Logistic Regression
 
-![PR Logistic](reports/figures/pr_logistic.png)
+![PR Logistic](assets/pr_logistic.png)
 
 ### SVM (RBF)
 
-![PR SVM](reports/figures/pr_svm_rbf.png)
+![PR SVM](assets/pr_svm_rbf.png)
 
 ### XGBoost
 
-![PR XGB](reports/figures/pr_xgb.png)
+![PR XGB](assets/pr_xgb.png)
 
 ---
 
@@ -127,15 +127,15 @@ Precision-Recall curves are particularly important for fraud detection tasks wit
 
 ### Logistic Regression
 
-![CM Logistic](reports/figures/cm_logistic_thr.png)
+![CM Logistic](assets/cm_logistic_thr.png)
 
 ### SVM (RBF)
 
-![CM SVM](reports/figures/cm_svm_rbf_thr.png)
+![CM SVM](assets/cm_svm_rbf_thr.png)
 
 ### XGBoost
 
-![CM XGB](reports/figures/cm_xgb_thr.png)
+![CM XGB](assets/cm_xgb_thr.png)
 
 For XGBoost:
 
