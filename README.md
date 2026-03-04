@@ -55,10 +55,32 @@ The pipeline automatically:
 5. Saves trained models and metrics
 
 ---
+```
+## Dataset
 
-# Dataset
+This project uses the **Shill Bidding Dataset** from the **UCI Machine Learning Repository**.
 
-The dataset contains behavioral signals extracted from online auctions.
+The dataset contains behavioral features designed to identify **fraudulent bidding activity (shill bidding)** in online auctions. These features capture bidding patterns that may indicate attempts to artificially inflate auction prices.
+
+Dataset source:
+
+UCI Machine Learning Repository  
+Shill Bidding Dataset  
+http://archive.ics.uci.edu/ml/datasets/Shill+Bidding+Dataset
+
+Summary of the dataset used in this project:
+
+- Observations: **6,321**
+- Features: **9**
+- Fraud cases: **675 (10.68%)**
+- Normal cases: **5,646 (89.32%)**
+
+The target variable indicates whether a bidder is engaging in **shill bidding behavior (fraudulent)** or **normal bidding behavior**.
+
+Note: The dataset is not included in this repository.  
+Please download it from the UCI repository and place it in:
+
+```
 
 ### Dataset Summary
 
@@ -83,7 +105,7 @@ This represents a **moderately imbalanced fraud detection problem**, which motiv
 
 ---
 
-# Model Performance (Validation)
+## Model Performance (Validation)
 
 | Model | Best Hyperparameters | F1 Score | ROC-AUC |
 |-----|-----|-----|-----|
@@ -95,7 +117,7 @@ XGBoost achieved the best performance and was selected as the final model.
 
 ---
 
-# ROC Curve Comparison
+## ROC Curve Comparison
 
 The figure below compares all trained models.
 
@@ -105,7 +127,7 @@ XGBoost dominates the ROC space with near-perfect separation.
 
 ---
 
-# Precision-Recall Curves
+## Precision-Recall Curves
 
 Precision-Recall curves are particularly important for fraud detection tasks with class imbalance.
 
@@ -123,7 +145,7 @@ Precision-Recall curves are particularly important for fraud detection tasks wit
 
 ---
 
-# Confusion Matrices (Optimized Thresholds)
+## Confusion Matrices (Optimized Thresholds)
 
 ### Logistic Regression
 
@@ -155,29 +177,29 @@ The model successfully detects fraudulent bidding with extremely low error rates
 Fraud detection is rarely best served by the default probability cutoff (0.5).  
 This pipeline selects a **best threshold on the validation set** by maximizing **F1 score**, then reports confusion matrices using that optimized threshold.
 
-# Calibration Analysis
+## Calibration Analysis
 
 Calibration curves assess whether predicted probabilities reflect true outcome frequencies.
 
 ### Logistic Regression
 
-![Calibration Logistic](reports/figures/cal_logistic.png)
+![Calibration Logistic](assets/cal_logistic.png)
 
 ### SVM
 
-![Calibration SVM](reports/figures/cal_svm_rbf.png)
+![Calibration SVM](assets/cal_svm_rbf.png)
 
 ### XGBoost
 
-![Calibration XGB](reports/figures/cal_xgb.png)
+![Calibration XGB](assets/cal_xgb.png)
 
 ---
 
-# Explainability (SHAP)
+## Explainability (SHAP)
 
 To understand model decisions, SHAP values were used to estimate feature contributions.
 
-![SHAP Summary](reports/figures/shap_summary_xgb.png)
+![SHAP Summary](assets/shap_summary_xgb.png)
 
 ### Top Predictive Signals
 
@@ -197,18 +219,20 @@ These patterns align with known **auction fraud behaviors**.
 ## Key Figures
 
 **ROC Comparison**
-![ROC Comparison](reports/figures/roc_comparison.png)
+![ROC Comparison](assets/roc_comparison.png)
 
 **XGBoost Precision–Recall**
-![PR XGB](reports/figures/pr_xgb.png)
+![PR XGB](assets/pr_xgb.png)
 
 **XGBoost Confusion Matrix (threshold optimized)**
-![CM XGB](reports/figures/cm_xgb_thr.png)
+![CM XGB](assets/cm_xgb_thr.png)
 
 **SHAP Feature Importance (XGBoost)**
-![SHAP](reports/figures/shap_summary_xgb.png)
+![SHAP](assets/shap_summary_xgb.png)
 
-# Project Structure
+```markdown
+
+### Project Structure
 
 shill-bidding-ml-pipeline
 │
@@ -246,7 +270,7 @@ shill-bidding-ml-pipeline
 ├── main.py
 └── requirements.txt
 
-
+```
 
 ---
 
@@ -261,14 +285,14 @@ If XGBoost fails to load with an OpenMP error, install OpenMP:
 bash
 brew install libomp
 
-### 1 Install dependencies
+### Install dependencies
 
 conda create -n fraud-ml python=3.11
 conda activate fraud-ml
 pip install -r requirements.txt
 
 
-### 2 Run the training pipeline
+### Run the training pipeline
 python main.py
 
 
@@ -281,16 +305,16 @@ The script will:
 
 ---
 
-
-(You already hit this issue, so adding it makes you look experienced.)
-
+```
+Note: On some macOS systems, XGBoost may fail to load due to missing OpenMP support. If this occurs, install OpenMP using `brew install libomp`.
+```
 ---
 
-## 5) Add a “Model Artifacts” table (very pro)
+##  Add a “Model Artifacts” table 
 
 Add this section:
 
-```markdown
+
 ## Saved Artifacts
 
 After running `python main.py`, the pipeline writes:
@@ -306,7 +330,7 @@ After running `python main.py`, the pipeline writes:
 | Permutation importance | `reports/figures/permutation_importance_*.csv` |
 | SHAP summary | `reports/figures/shap_summary_xgb.png` |
 
-
+```
 # Generated Outputs
 
 The pipeline automatically produces:
@@ -325,7 +349,7 @@ reports/
 │
 └── metrics.json
 
-
+```
 
 
 ---
