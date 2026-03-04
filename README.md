@@ -372,12 +372,7 @@ reports/
 
 Machine Learning • Data Science • Statistical Modeling • Data Engineering
 
-Research focus:
 
-- High-dimensional statistical modeling
-- Survival analysis
-- Time-series epidemiology
-- Explainable machine learning
 
 ---
 
